@@ -73,7 +73,7 @@ namespace StringSafari
         {
             // TODO
              
-            if (HasZebra(str) && HasAdultZebra(str))
+            if (HasBabyZebra(str) && HasAdultZebra(str))
             {
                 return true;
             } else
@@ -91,8 +91,13 @@ namespace StringSafari
         /// <returns>true if the string has at least two lions in it, false otherwise</returns>
         public static bool HasAPride(string str)
         {
-            //if(str.Contains("LION"))
-            return false;
+            if ((str.ToLower()).Contains("lion") && str.Contains("LION"))
+            {
+                return true;
+            } else
+            {
+                return false;
+            }                        
         }
 
         /// <summary>
@@ -103,9 +108,9 @@ namespace StringSafari
         /// <returns>true if the string has at least two lions in it and just one zebra, false otherwise</returns>
         public static bool ThereWillBeBlood(string str)
         {
-            if (HasADazzle(str))
+            if ((HasADazzle(str) == false) && (HasAPride(str) == true))
             {
-                return false;
+                return true;
             }
             else
             {
@@ -122,8 +127,11 @@ namespace StringSafari
         /// <returns>true if there is no lion at the start of the string</returns>
         public static bool SafeDistanceToLion(string str)
         {
-  
-            return false;
+            if ((str.ToLower()).StartsWith("lion"))
+            {
+                return false;
+            }
+            return true;
         }
     }
 }
