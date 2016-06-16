@@ -72,8 +72,14 @@ namespace StringSafari
         public static bool HasADazzle(string str)
         {
             // TODO
-           if
-            return false;
+             
+            if (HasZebra(str) && HasAdultZebra(str))
+            {
+                return true;
+            } else
+            {
+                return false;
+            }            
         }
 
         /// <summary>
