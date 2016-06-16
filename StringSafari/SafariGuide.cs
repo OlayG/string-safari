@@ -71,15 +71,23 @@ namespace StringSafari
         /// <returns>true if the string has at least two zebras in it, false otherwise</returns>
         public static bool HasADazzle(string str)
         {
-            // TODO
-             
-            if (HasBabyZebra(str) && HasAdultZebra(str))
+            // "lion zebra zebra"
+            //  0123456789012345
+            string newString = str.ToLower();
+            int firstZebra = newString.IndexOf("zebra");
+            int lastZebra = newString.LastIndexOf("zebra");
+
+            if (firstZebra == lastZebra)
             {
-                return true;
-            } else
-            {
+                // only one zebra!
                 return false;
-            }            
+            }
+            else
+            {
+                // at least two zebras
+                return true;
+            }
+
         }
 
         /// <summary>
@@ -91,13 +99,18 @@ namespace StringSafari
         /// <returns>true if the string has at least two lions in it, false otherwise</returns>
         public static bool HasAPride(string str)
         {
-            if ((str.ToLower()).Contains("lion") && str.Contains("LION"))
-            {
-                return true;
-            } else
+            string lowerCaseStr = str.ToLower();
+            int firstLion = lowerCaseStr.IndexOf("lion");
+            int secondLion = lowerCaseStr.LastIndexOf("lion");
+
+            if (firstLion == secondLion)
             {
                 return false;
-            }                        
+            }
+            else
+            {
+                return true;
+            }
         }
 
         /// <summary>
@@ -108,7 +121,7 @@ namespace StringSafari
         /// <returns>true if the string has at least two lions in it and just one zebra, false otherwise</returns>
         public static bool ThereWillBeBlood(string str)
         {
-            if ((HasADazzle(str) == false) && (HasAPride(str) == true))
+            if (HasAPride(str) && (!HasADazzle(str) && HasZebra(str)))
             {
                 return true;
             }
