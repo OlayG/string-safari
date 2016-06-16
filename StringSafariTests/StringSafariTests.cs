@@ -84,5 +84,16 @@ namespace StringSafari.Test
             return SafariGuide.SafeDistanceToLion(str);
         }
 
+        [TestCase("zebra", ExpectedResult = false)]
+        [TestCase("Lion", ExpectedResult = false)]
+        [TestCase("LION ZEBRA zebra lion", ExpectedResult = true)]
+        [TestCase("zebra LION ZEBRA lion", ExpectedResult = true)]
+        [TestCase("LION zebra LION", ExpectedResult = false)]
+        [TestCase("LION zebra lion", ExpectedResult = false)]
+        public bool NoahsArk(string str)
+        {
+            return SafariGuide.NoahsArk(str);
+        }
+
     }
 }

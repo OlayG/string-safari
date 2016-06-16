@@ -133,5 +133,28 @@ namespace StringSafari
             }
             return true;
         }
+
+
+        /// <summary>
+        /// Looks for at least two zebras and 2 lions in <paramref name="str"/>.
+        /// <para>A zebra is defined as it is for the <see cref="HasZebra(string)"/> method.</para>
+        /// <para>A lion is defined as it is for the <see cref="HasAPride(string)"/> method.</para>
+        /// </summary>
+        /// <param name="str">The string to search</param>
+        /// <returns>true if the string has at least two zebras and lions in it, false otherwise</returns>
+        public static bool NoahsArk(string str)
+        {
+            // TODO
+
+            if ((HasBabyZebra(str) && HasAdultZebra(str)) && HasAPride(str))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
     }
 }
