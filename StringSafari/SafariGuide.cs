@@ -169,5 +169,25 @@ namespace StringSafari
             }
         }
 
+        public static int EvenChars(string str)
+        {
+            string str1 = str.Replace(" ", "");
+            int strLength = str1.Length;
+            int strChar = 0;
+            int counter = 0;
+        
+            while (strChar < strLength)
+            {
+                if (strChar % 2 == 0)
+                {
+                    counter++;
+                }
+                strChar++;
+            }
+
+            return counter;
+
+        }
+
     }
 }

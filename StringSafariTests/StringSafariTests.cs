@@ -90,9 +90,20 @@ namespace StringSafari.Test
         [TestCase("zebra LION ZEBRA lion", ExpectedResult = true)]
         [TestCase("LION zebra LION", ExpectedResult = false)]
         [TestCase("LION zebra lion", ExpectedResult = false)]
-        public bool NoahsArk(string str)
+        public bool NoahsArkTest(string str)
         {
             return SafariGuide.NoahsArk(str);
+        }
+
+        [TestCase("zebra", ExpectedResult = 3)]
+        [TestCase("Lion", ExpectedResult = 2)]
+        [TestCase("LION ZEBRA zebra lion", ExpectedResult = 9)]
+        //[TestCase("zebra LION ZEBRA lion", ExpectedResult = true)]
+        [TestCase("LION zebra LION", ExpectedResult = 7)]
+        //[TestCase("LION zebra lion", ExpectedResult = false)]
+        public int EvenCharsTest(string str)
+        {
+            return SafariGuide.EvenChars(str);
         }
 
     }
